@@ -45,12 +45,29 @@ services:
       - "./mysql/var/lib/mysql:/var/lib/mysql"
 
   phpmyadmin:
-      container_name: phpmyadmin
-      networks:
-        - frontend
-        - backend
-      image: phpmyadmin/phpmyadmin
-      ports:
-        - "8080:80"
-      environment:
-        PMA_HOST: mysql
+    container_name: phpmyadmin
+    networks:
+      - frontend
+      - backend
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: mysql
+
+  redis:
+    container_name: redis
+    networks:
+      - backend
+    build: ./redis/
+    volumes:
+          - ./log/supervisor:/var/log/supervisor
+    ports:
+      - "7000:7000"
+      - "7001:7001"
+      - "7002:7002"
+      - "7003:7003"
+      - "7004:7004"
+      - "7005:7005"
+      - "7006:7006"
+      - "7007:7007"
