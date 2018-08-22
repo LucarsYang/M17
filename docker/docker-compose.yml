@@ -15,8 +15,9 @@ services:
       - "80:80"
     volumes:
       - "./nginx/etc/nginx/conf.d:/etc/nginx/conf.d"
-      - "./nginx/var/www/html:/var/www/html"
       - "./nginx/var/log/nginx:/var/log/nginx"
+      - "/Users/lucas/gitlab/dashboard:/var/www/html/dashboard"
+      - "/Users/lucas/gitlab/local:/var/www/html/local"
 
   php:
     container_name: "php"
@@ -26,7 +27,8 @@ services:
     expose:
       - 9000
     volumes:
-      - "./nginx/var/www/html:/var/www/html"
+      - "/Users/lucas/gitlab/dashboard:/var/www/html/dashboard"
+      - "/Users/lucas/gitlab/local:/var/www/html/local"
 
   mysql:
     container_name: "mysql"
