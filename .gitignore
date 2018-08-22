@@ -2,3 +2,4 @@
 \.idea/
 docker/log/
 docker/mysql/var/lib/mysql/
+docker/nginx/var/log/nginx/
